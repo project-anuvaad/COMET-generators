@@ -1,4 +1,4 @@
-const mongodbCRUDGenerator = require('./dbroutesGenerator');
+const mongodbCRUDGenerator = require('./mongodbCRUDGenerator');
 
 module.exports = {
     mongodbCRUDGenerator,
