@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = ({ uploadLimit }) => {
     const express = require('express')
     const morgan = require('morgan')
     const bodyParser = require('body-parser')
@@ -21,9 +21,9 @@ module.exports = () => {
     });
     app.use(morgan('dev')) // use morgan to log requests to the console
 
-    app.use(bodyParser.json({ limit: '50mb' })) // parse application/json
+    app.use(bodyParser.json({ limit: uploadLimit || '50mb' })) // parse application/json
     app.use(bodyParser.json({ type: 'application/vnd.api+json' })) // parse application/vnd.api+json as json
-    app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' })) // parse application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({ extended: true, limit: uploadLimit || '50mb' })) // parse application/x-www-form-urlencoded
 
     app.use(methodOverride('X-HTTP-Method-Override')) // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
     app.use(compression({ threshold: 0 }))
