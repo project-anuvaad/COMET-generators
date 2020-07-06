@@ -1,4 +1,4 @@
-module.exports = ({ uploadLimit }) => {
+module.exports = ({ uploadLimit } = {}) => {
     const express = require('express')
     const morgan = require('morgan')
     const bodyParser = require('body-parser')
