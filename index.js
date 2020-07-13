@@ -1,8 +1,8 @@
 const mongodbCRUDGenerator = require('./mongodbCRUDGenerator');
 const serverGenerator = require('./serverGenerator');
-const healthchecRouteGenerator = require('./healthcheckRouteGenerator');
+const healthcheckRouteGenerator = require('./healthcheckRouteGenerator');
 module.exports = {
     mongodbCRUDGenerator,
     serverGenerator,
-    healthchecRouteGenerator,
+    healthcheckRouteGenerator,
 }
