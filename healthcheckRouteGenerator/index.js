@@ -1,5 +1,13 @@
-module.exports = ({ router, mongoConnection, rabbitmqConnection }) => {
-  router.get("/health", (req, res) => {
+module.exports = ({
+  router,
+  healthcheckPath,
+  mongoConnection,
+  rabbitmqConnection,
+}) => {
+  if (!healthcheckPath) {
+    healthcheckPath = "/health";
+  }
+  router.get(healthcheckPath, (req, res) => {
     if (mongoConnection) {
       const { readyState } = mongoConnection;
       // readyState is either 1 or to for connected or connecting
